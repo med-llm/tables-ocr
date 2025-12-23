@@ -8,7 +8,8 @@ from datasets import load_dataset
 # 此处我们仅模拟创建包含模式信息和推理标签的数据集。
 
 DATASET_NAME = "spider"
-OUTPUT_DIR = "/home/jovyan/shared/sifanli/tocr/processed_data"
+# Save processed data inside the repository so training and upload steps can find it
+OUTPUT_DIR = "processed_data"
 
 # (Hypothetical code to add to data_processor.py)
 from eralchemy import render_er
@@ -80,8 +81,9 @@ def download_and_process_spider():
         for item in processed_examples:
             f.write(json.dumps(item) + '\n')
             
-    print(f"--- 数据处理完成，共生成 {len(processed_examples)} 个训练样本。文件路径: {OUTPUT_DIR}/deepseek_finetune_data.jsonl ---")
-    return os.path.join(OUTPUT_DIR, "deepseek_finetune_data.jsonl")
+    output_path = os.path.join(OUTPUT_DIR, "deepseek_finetune_data.jsonl")
+    print(f"--- 数据处理完成，共生成 {len(processed_examples)} 个训练样本。文件路径: {output_path} ---")
+    return output_path
 
 if __name__ == '__main__':
     download_and_process_spider()

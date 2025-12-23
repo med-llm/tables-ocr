@@ -171,9 +171,9 @@ import json
 from typing import List, Dict
 
 # --- 配置 ---
-MODEL_NAME = "deepseek-ai/DeepSeek-OCR" 
-DATA_FILE_PATH = "processed_data/deepseek_finetune_data.jsonl" 
-OUTPUT_MODEL_DIR = "/home/jovyan/shared/sifanli/tocr/deepseek_ocr_finetuned"
+MODEL_NAME = "deepseek-ai/DeepSeek-OCR"
+DATA_FILE_PATH = "processed_data/deepseek_finetune_data.jsonl"
+OUTPUT_MODEL_DIR = "deepseek_ocr_finetuned"
 LORA_R = 8
 LORA_ALPHA = 16
 BATCH_SIZE = 2
